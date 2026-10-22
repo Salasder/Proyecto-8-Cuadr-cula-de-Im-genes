@@ -1,0 +1,83 @@
+/* Configuración general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+/* Cuadrícula de imágenes */
+.cuadricula-imagenes {
+    width: 100%;
+    max-width: 1100px;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 160px 190px 160px;
+
+    grid-template-areas:
+        "izquierda superior derecha"
+        "izquierda central derecha"
+        "inferior-izquierda central inferior-derecha";
+
+    gap: 8px;
+}
+
+/* Estilos generales de las imágenes */
+.cuadricula-imagenes img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Ubicación de cada imagen */
+.imagen-izquierda {
+    grid-area: izquierda;
+}
+
+.imagen-superior {
+    grid-area: superior;
+}
+
+.imagen-central {
+    grid-area: central;
+}
+
+.imagen-derecha {
+    grid-area: derecha;
+}
+
+.imagen-inferior-izquierda {
+    grid-area: inferior-izquierda;
+}
+
+.imagen-inferior-derecha {
+    grid-area: inferior-derecha;
+}
+
+/* Adaptación a pantallas pequeñas */
+@media (max-width: 600px) {
+    .cuadricula-imagenes {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 150px);
+
+        grid-template-areas:
+            "izquierda superior"
+            "izquierda central"
+            "derecha central"
+            "inferior-izquierda inferior-derecha";
+    }
+}
